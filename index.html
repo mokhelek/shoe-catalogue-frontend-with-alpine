@@ -61,7 +61,7 @@
                         </a>
 
                         <div class="d-flex" style="margin-left: 2rem; border: 1px rgb(206, 206, 206) solid; padding-left: 0.3rem; height: 35px">
-                            <input style="width: 150px" class="title-search-filter" onchange="filterFunctionClicked()" type="search" placeholder="search shoes ..." aria-label="Search" />
+                            <input style="width: 150px" class="title-search-filter"  type="search" placeholder="search shoes ..." aria-label="Search" />
 
                             <a href="#shoes" type="submit" style="margin-left: 1.8rem; border: none; border-radius: 0" class="btn btn-dark nav-item">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -87,9 +87,9 @@
     <div style="background-color: rgb(31, 31, 31); padding: 1rem 3rem 1rem 3rem; color: white" class="d-flex justify-content-center">
         <select id="dropDown" onchange="filterFunctionClicked()" class="color-filter-dropdown nav-link">
             <option value="" id="color-default">All Colors</option>
-            <option value="red">Red</option>
-            <option value="black">Black</option>
-            <option value="gray">Gray</option>
+            <option @click="setColorFiler('red')" value="red">Red</option>
+            <option @click="setColorFiler('black')" value="black">Black</option>
+            <option @click="setColorFiler('gray')" value="gray">Gray</option>
         </select>
         &nbsp;&nbsp;&nbsp;
         <select id="dropDown" class="brand-filter-dropdown nav-link">
@@ -108,6 +108,10 @@
             <option value="7">size 7</option>
             <option value="8">size 8</option>
         </select>
+        &nbsp;&nbsp;&nbsp;
+
+        <button @click="checkFilter()" class="btn btn-success btn-sm" >Filter</button>
+
     </div>
     <br />
     <br />
