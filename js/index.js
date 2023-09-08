@@ -13,15 +13,19 @@ function shoeCatalogue() {
                     this.shoesList = result.data;
                 });
             }else if(this.colorFilterValue == '' && this.sizeFilterValue != '' && this.brandFilterValue == '' ){
-                // todo -> filter by size
+                axios.get(`https://shoe-catalogue-api.onrender.com/api/shoes/size/${this.sizeFilterValue}`).then((result) => {
+                    this.shoesList = result.data;
+                });
             }else if(this.colorFilterValue =='' && this.sizeFilterValue == '' && this.brandFilterValue != '' ){
                 // todo -> filter by brand
             }
         },
         
         setColorFiler(color){
-            console.log(color)
             this.colorFilterValue = color;
+        },
+        setSizeFiler(size){
+            this.sizeFilterValue = size;
         },
 
         getAllShoes() {
