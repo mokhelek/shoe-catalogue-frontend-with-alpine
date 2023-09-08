@@ -93,15 +93,15 @@
         </select>
         &nbsp;&nbsp;&nbsp;
         <select id="dropDown" class="brand-filter-dropdown nav-link">
-            <option value="">All Brands</option>
-            <option value="Gucci">Gucci</option>
-            <option value="Balenciaga">Balenciaga</option>
-            <option value="Versace">Versace</option>
+            <option @click="setBrandFiler('')" value="">All Brands</option>
+            <option @click="setBrandFiler('Gucci')" value="Gucci">Gucci</option>
+            <option @click="setBrandFiler('Balenciaga')" value="Balenciaga">Balenciaga</option>
+            <option @click="setBrandFiler('Versace')" value="Versace">Versace</option>
         </select>
 
         &nbsp;&nbsp;&nbsp;
         <select style="color: white" id="dropDown" onchange="filterFunctionClicked()" class="size-filter-dropdown">
-            <option value="">All Sizes</option>
+            <option @click="setSizeFiler('')" value="">All Sizes</option>
             <option @click="setSizeFiler('4')" value="4">size 4</option>
             <option @click="setSizeFiler('5')" value="5">size 5</option>
             <option @click="setSizeFiler('6')" value="6">size 6</option>

@@ -1,6 +1,7 @@
 function shoeCatalogue() {
     return {
-
+        positiveFeedback:'',
+        negativeFeedback:'',
         shoesList: [],
 
         colorFilterValue:'',
@@ -17,7 +18,13 @@ function shoeCatalogue() {
                     this.shoesList = result.data;
                 });
             }else if(this.colorFilterValue =='' && this.sizeFilterValue == '' && this.brandFilterValue != '' ){
-                // todo -> filter by brand
+                axios.get(`https://shoe-catalogue-api.onrender.com/api/shoes/brand/${this.brandFilterValue}`).then((result) => {
+                    this.shoesList = result.data;
+                });
+            }else if(this.colorFilterValue =='' && this.sizeFilterValue != '' && this.brandFilterValue != '' ){
+                axios.get(`https://shoe-catalogue-api.onrender.com/api/shoes/brand/${this.brandFilterValue}/size/${this.sizeFilterValue}`).then((result) => {
+                    this.shoesList = result.data;
+                });
             }
         },
         
@@ -26,6 +33,9 @@ function shoeCatalogue() {
         },
         setSizeFiler(size){
             this.sizeFilterValue = size;
+        },
+        setBrandFiler(brand){
+            this.brandFilterValue = brand;
         },
 
         getAllShoes() {
