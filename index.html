@@ -74,8 +74,43 @@
             </div>
         </div>
     </nav>
-
+    
     <br><br>
+    <center>
+        <small style="color: rgb(97, 97, 97)"> ~ Made with the finest materials ~</small>
+        <h1 id="shoes">Walk In Style With Our Luxurious Shoes</h1>
+        <div style="height: 0.4rem; width: 6rem; background-color: rgb(25, 25, 25); margin-top: 0.6rem"></div>
+    </center>
+
+    <br />
+    <br />
+    <div style="background-color: rgb(31, 31, 31); padding: 1rem 3rem 1rem 3rem; color: white" class="d-flex justify-content-center">
+        <select id="dropDown" onchange="filterFunctionClicked()" class="color-filter-dropdown nav-link">
+            <option value="" id="color-default">All Colors</option>
+            <option value="red">Red</option>
+            <option value="black">Black</option>
+            <option value="gray">Gray</option>
+        </select>
+        &nbsp;&nbsp;&nbsp;
+        <select id="dropDown" class="brand-filter-dropdown nav-link">
+            <option value="">All Brands</option>
+            <option value="Gucci">Gucci</option>
+            <option value="Balenciaga">Balenciaga</option>
+            <option value="Versace">Versace</option>
+        </select>
+
+        &nbsp;&nbsp;&nbsp;
+        <select style="color: white" id="dropDown" onchange="filterFunctionClicked()" class="size-filter-dropdown">
+            <option value="">All Sizes</option>
+            <option value="4">size 4</option>
+            <option value="5">size 5</option>
+            <option value="6">size 6</option>
+            <option value="7">size 7</option>
+            <option value="8">size 8</option>
+        </select>
+    </div>
+    <br />
+    <br />
 
     <body x-data="shoeCatalogue">
         <div style="width: 95%" class="container-fluid">
