@@ -7,6 +7,12 @@ function shoeCart(){
                 this.cartList = result.data;
             });
         },
+        addToCart(id){
+            console.log(id)
+            axios.post(`https://shoe-catalogue-api.onrender.com/api/cart/add-to-cart/${id}`).then(() => {
+                // *--
+            });
+        },
         init() {
             this.getCartItems();
         },

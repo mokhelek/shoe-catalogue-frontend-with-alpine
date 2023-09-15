@@ -65,63 +65,64 @@
         <div style="width: 90%" class="container-fluid">
             <br />
             <div class="row">
-                <template x-for="item in cartList" class="col-md-9 cart-shoes-wrapper">
-  
-                    <div style="margin-bottom: 2rem" class="row">
-                        <div class="col-5">
-                            <div class="row">
-                                <div class="col-6">
-                                    <img style="width: 150px; height: 110px" class="img-fluid" :src="item.image_url" alt="image" />
+                <template x-for="item in cartList" >
+                    <div class="col-md-9 cart-shoes-wrapper">
+
+                            <div style="margin-bottom: 2rem" class="row">
+                                <div class="col-5">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <img style="width: 150px; height: 110px" class="img-fluid" :src="item.image_url" alt="image" />
+                                        </div>
+                                        <div class="col-6">
+                                            <h5 x-text="item.shoe_name" ></h5>
+                                            <small x-text="item.brand" style="margin: 0"></small>
+                                            <p style="margin: 0">Size : <span x-text="item.size"></span> </p>
+                                            <p style="margin: 0">color : <span x-text="item.color"></span> </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-6">
-                                    <h5 x-text="item.shoe_name" ></h5>
-                                    <small x-text="item.brand" style="margin: 0"></small>
-                                    <p style="margin: 0">Size : <span x-text="item.size"></span> </p>
-                                    <p style="margin: 0">color : <span x-text="item.color"></span> </p>
+
+                                <div class="col-7">
+                                    <div style="width: 100%" class="shoe-details">
+                                        <table style="width: 100%; padding: 1rem">
+                                            <tr style="background-color: rgb(224, 224, 224)">
+                                                <td>Quantity</td>
+                                                <td>Price</td>
+                                                <td>Total</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="padding: 0.7rem">
+                                                    <button style="border: none; background: none" class="btn btn-outline-secondary btn-sm">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-left-fill text-dark" viewBox="0 0 16 16">
+                                                            <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+                                                        </svg>
+                                                    </button>
+
+                                                    <span x-text="item.quantity" class="quantity-counter-{{this.id}}" style="padding: 0.5rem 0.8rem 0.5rem 0.8rem; border: 1px rgb(198, 198, 198) solid">  </span>
+
+                                                    <button style="border: none; background: none" class="btn btn-outline-secondary btn-sm">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-right-fill text-dark" viewBox="0 0 16 16">
+                                                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                                                        </svg>
+                                                    </button>
+                                                </td>
+                                                <td x-text="item.price" ></td>
+                                                <td>R <span class="subtotal" x-text=" item.price*item.quantity " > </span></td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-7">
-                            <div style="width: 100%" class="shoe-details">
-                                <table style="width: 100%; padding: 1rem">
-                                    <tr style="background-color: rgb(224, 224, 224)">
-                                        <td>Quantity</td>
-                                        <td>Price</td>
-                                        <td>Total</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td style="padding: 0.7rem">
-                                            <button style="border: none; background: none" class="btn btn-outline-secondary btn-sm">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-left-fill text-dark" viewBox="0 0 16 16">
-                                                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
-                                                </svg>
-                                            </button>
-
-                                            <span x-text="item.quantity" class="quantity-counter-{{this.id}}" style="padding: 0.5rem 0.8rem 0.5rem 0.8rem; border: 1px rgb(198, 198, 198) solid">  </span>
-
-                                            <button style="border: none; background: none" class="btn btn-outline-secondary btn-sm">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-right-fill text-dark" viewBox="0 0 16 16">
-                                                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                                                </svg>
-                                            </button>
-                                        </td>
-                                        <td x-text="item.price" ></td>
-                                        <td>R <span class="subtotal" x-text=" item.price*item.quantity " > </span></td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-      
+                     </div>
                 </template>
             </div>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="js/index.js"></script>
+        <script src="js/shoes.js"></script>
         <script src="js/cart.js"></script>
         <script src="js/main.DOM.js"></script>
     </body>
