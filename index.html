@@ -138,8 +138,14 @@
                                         <p style="color: rgb(190, 123, 0); font-size: 0.9rem"><span x-text="shoe.quantity"></span> in stock</p>
                                     </div>
                                 </div>
-
-                                <button @click="removeFromCart(shoe.id)"  style="width: 100%; border-radius: 0" class="btn btn-dark btn-block btn-sm">remove from cart</button>
+                                
+                                <div x-show="cart.shoeInCart.includes(shoe.id)">
+                                    <button @click="cart.removeFromCart(shoe.id)"  style="width: 100%; border-radius: 0" class="btn btn-dark btn-block btn-sm">remove from cart</button>
+                                </div>
+                                <div x-show="!cart.shoeInCart.includes(shoe.id)">
+                                    <button @click="cart.addToCart(shoe.id)"  style="width: 100%; border-radius: 0" class="btn btn-dark btn-block btn-sm">add to cart</button>
+                                    <!-- <button @click="removeFromCart(shoe.id)"  style="width: 100%; border-radius: 0" class="btn btn-dark btn-block btn-sm">remove from cart</button> -->
+                                </div>
 
                             </div>
                         </div>

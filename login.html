@@ -13,7 +13,7 @@
         <div style="height: 80vh" class="container d-flex justify-content-center align-items-center">
             <div style="border: 1px solid gray; padding: 4rem; box-shadow: 0 0 8px rgb(177, 177, 177)" class="col-7">
                 <center><h2>Login</h2></center>
-                <form @submit.prevent="auth.login" method="post">
+                <form @submit.prevent="auth.login()" >
                     <label for="username">username</label>
                     <input x-model="auth.username" id="username" style="margin-bottom: 1rem" class="form-control" type="text" name="username" placeholder="Username" required />
 
@@ -25,6 +25,7 @@
                     </p>
                     <button class="btn btn-primary btn-sm" type="submit">Login</button>
                 </form>
+             
             </div>
         </div>
 

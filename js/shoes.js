@@ -3,7 +3,7 @@ function shoeCatalogue() {
         username: "",
         password: "",
 
-        login: function () {
+        login() {
             const userData = {
                 username: this.username,
                 password: this.password,
@@ -95,44 +95,48 @@ function shoeCatalogue() {
                 this.shoesList = result.data;
             });
         },
-
     };
 
     let cart = {
         message: "This is a test message",
         cartList: [],
-        shoeInCart: false,
+        shoeInCart: [],
+
         getCartItems() {
-            axios.get("https://shoe-catalogue-api.onrender.com/api/cart/", { headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` } } ).then((result) => {
+            axios.get("https://shoe-catalogue-api.onrender.com/api/cart/", { headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` } }).then((result) => {
                 this.cartList = result.data;
+                this.checkShoeInCart();
             });
         },
         addToCart(id) {
-            axios.post(`https://shoe-catalogue-api.onrender.com/api/cart/add-to-cart/${id}`).then(() => {
-                // *--
+            axios.post(`https://shoe-catalogue-api.onrender.com/api/cart/add-to-cart/${id}` , {}, {headers: {Authorization: `Bearer ${localStorage.getItem("jwtToken")}`}} ).then(() => {
+                // *-- after successfully adding to cart, I should make a request.
+                console.log("---- ",id)
+                this.getCartItems()
             });
         },
         removeFromCart(id) {
             axios.post(`https://shoe-catalogue-api.onrender.com/api/cart/remove-from-cart/${id}`).then(() => {
                 // *--
+                this.getCartItems()
             });
         },
-        changeBool(result) {
-            console.log(result);
-            this.shoeInCart = result;
+        checkShoeInCart() {
+            let shoeIDs = this.cartList.map((obj) => obj.id);
+            this.shoeInCart = shoeIDs;
+            console.log(shoeIDs)
+
         },
-
     };
-
 
     return {
         auth,
         shoes,
         cart,
 
-       init(){
-        this.shoes.getAllShoes()
-        this.cart.getCartItems()
-       }
-    }
+        init() {
+            this.shoes.getAllShoes();
+            this.cart.getCartItems();
+        },
+    };
 }
