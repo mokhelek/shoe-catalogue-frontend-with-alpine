@@ -25,10 +25,6 @@ function shoeCatalogue() {
                     console.error("Error:", error);
                 });
         },
-
-        init() {
-            //
-        },
     };
 
     let shoes = {
@@ -109,23 +105,23 @@ function shoeCatalogue() {
             });
         },
         addToCart(id) {
-            axios.post(`https://shoe-catalogue-api.onrender.com/api/cart/add-to-cart/${id}` , {}, {headers: {Authorization: `Bearer ${localStorage.getItem("jwtToken")}`}} ).then(() => {
-                // *-- after successfully adding to cart, I should make a request.
-                console.log("---- ",id)
-                this.getCartItems()
+            axios.post(`https://shoe-catalogue-api.onrender.com/api/cart/add-to-cart/${id}`, {}, { headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` } }).then(() => {
+                this.getCartItems();
             });
         },
         removeFromCart(id) {
-            axios.post(`https://shoe-catalogue-api.onrender.com/api/cart/remove-from-cart/${id}`).then(() => {
-                // *--
-                this.getCartItems()
+            axios.post(`https://shoe-catalogue-api.onrender.com/api/cart/remove-from-cart/${id}`, {}, { headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` } }).then(() => {
+                this.getCartItems();
             });
         },
         checkShoeInCart() {
             let shoeIDs = this.cartList.map((obj) => obj.id);
             this.shoeInCart = shoeIDs;
-            console.log(shoeIDs)
-
+        },
+        updateCart(id, qty) {
+            axios.post(`https://shoe-catalogue-api.onrender.com/api/cart/update-cart/${id}`, { quantity: qty }, { headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` } }).then(() => {
+                this.getCartItems();
+            });
         },
     };
 
