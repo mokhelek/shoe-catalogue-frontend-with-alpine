@@ -20,7 +20,10 @@
                             <a class="nav-link" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="newShoe.html">Add Shoe</a>
+                            <a class="nav-link" href="login.html">login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">sign-up</a>
                         </li>
                     </ul>
                 </div>
@@ -61,7 +64,7 @@
                         </a>
 
                         <div class="d-flex" style="margin-left: 2rem; border: 1px rgb(206, 206, 206) solid; padding-left: 0.3rem; height: 35px">
-                            <input style="width: 150px" class="title-search-filter"  type="search" placeholder="search shoes ..." aria-label="Search" />
+                            <input style="width: 150px" class="title-search-filter" type="search" placeholder="search shoes ..." aria-label="Search" />
 
                             <a href="#shoes" type="submit" style="margin-left: 1.8rem; border: none; border-radius: 0" class="btn btn-dark nav-item">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -74,8 +77,8 @@
             </div>
         </div>
     </nav>
-    
-    <br><br>
+
+    <br /><br />
     <center>
         <small style="color: rgb(97, 97, 97)"> ~ Made with the finest materials ~</small>
         <h1 id="shoes">Walk In Style With Our Luxurious Shoes</h1>
@@ -110,17 +113,16 @@
         </select>
         &nbsp;&nbsp;&nbsp;
 
-        <button @click="checkFilter()" class="btn btn-success btn-sm" >Filter</button>
-
+        <button @click="checkFilter()" class="btn btn-success btn-sm">Filter</button>
     </div>
     <br />
     <br />
 
-    <body x-data="shoeCart" >
-        <h1 x-text="message" ></h1>
+    <body >
+ 
         <div style="width: 95%" class="container-fluid">
             <div class="row">
-                <template class="shoe-box-template" x-for="shoe in shoesList">
+                <template class="shoe-box-template" x-for="shoe in shoes.shoesList">
                     <div class="col-lg-3 col-md-4 col-6 shoe-box-wrapper">
                         <div class="shoe-box card">
                             <img style="height: 15rem" class="img-fluid" :src="shoe.image_url" alt="" />
@@ -137,7 +139,8 @@
                                     </div>
                                 </div>
 
-                                <button @click="addToCart(shoe.id)" style="width: 100%; border-radius: 0" class="btn btn-dark btn-block btn-sm">add to bag</button>
+                                <button @click="removeFromCart(shoe.id)"  style="width: 100%; border-radius: 0" class="btn btn-dark btn-block btn-sm">remove from cart</button>
+
                             </div>
                         </div>
                     </div>
@@ -148,7 +151,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="js/shoes.js"></script>
-        <script src="js/cart.js"></script>
         <script src="js/main.DOM.js"></script>
     </body>
 </html>
