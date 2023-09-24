@@ -39,7 +39,7 @@
                                 <svg fill="#787878" width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3,22H21a1,1,0,0,0,1-1.077l-1-13A1,1,0,0,0,20,7H17A5,5,0,0,0,7,7H4a1,1,0,0,0-1,.923l-1,13A1,1,0,0,0,3,22ZM12,4a3,3,0,0,1,3,3H9A3,3,0,0,1,12,4ZM4.926,9H7v2a1,1,0,0,0,2,0V9h6v2a1,1,0,0,0,2,0V9h2.074l.846,11H4.08Z" />
                                 </svg>
-                                <!-- <span class="position-absolute top-0 start-50 badge rounded-pill bg-dark" style="font-size: 0.65rem; margin-left: 0.6rem">5</span> -->
+                                <!-- <span class="position-absolute top-0 start-50 badge rounded-pill bg-dark" style="font-size: 0.65rem; margin-left: 0.4rem">5</span> -->
                             </div>
                         </a>
 
@@ -59,11 +59,11 @@
                                 <svg fill="#787878" width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3,22H21a1,1,0,0,0,1-1.077l-1-13A1,1,0,0,0,20,7H17A5,5,0,0,0,7,7H4a1,1,0,0,0-1,.923l-1,13A1,1,0,0,0,3,22ZM12,4a3,3,0,0,1,3,3H9A3,3,0,0,1,12,4ZM4.926,9H7v2a1,1,0,0,0,2,0V9h6v2a1,1,0,0,0,2,0V9h2.074l.846,11H4.08Z" />
                                 </svg>
-                                <span x-text="cart.cartList.length" class="position-absolute top-0 start-50 badge rounded-pill bg-dark cartCounterLg" style="font-size: 0.65rem; margin-left: 0.6rem"> </span>
+                                <span x-text="cart.cartList.length" class="position-absolute top-0 start-50 badge rounded-pill bg-dark cartCounterLg" style="font-size: 0.65rem; margin-left: 0.4rem"> </span>
                             </div>
                         </a>
 
-                        <div class="d-flex" style="margin-left: 2rem; border: 1px rgb(206, 206, 206) solid; padding-left: 0.3rem; height: 35px">
+                        <div class="d-flex" style="margin-left: 2rem; border: 1px rgb(206, 206, 206) solid; padding-left: 0.rem; height: 35px">
                             <input style="width: 150px" class="title-search-filter" type="search" placeholder="search shoes ..." aria-label="Search" />
 
                             <a href="#shoes" type="submit" style="margin-left: 1.8rem; border: none; border-radius: 0" class="btn btn-dark nav-item">
@@ -82,75 +82,98 @@
     <center>
         <small style="color: rgb(97, 97, 97)"> ~ Made with the finest materials ~</small>
         <h1 id="shoes">Walk In Style With Our Luxurious Shoes</h1>
-        <div style="height: 0.4rem; width: 6rem; background-color: rgb(25, 25, 25); margin-top: 0.6rem"></div>
+        <div style="height: 0.4rem; width:.4rem; background-color: rgb(25, 25, 25); margin-top: 0.4rem"></div>
     </center>
 
-    <br />
-    <br />
-    <div style="background-color: rgb(31, 31, 31); padding: 1rem 3rem 1rem 3rem; color: white" class="d-flex justify-content-center">
-        <select id="dropDown" onchange="filterFunctionClicked()" class="color-filter-dropdown nav-link">
-            <option @click="setColorFiler('')" value="" id="color-default">All Colors</option>
-            <option @click="setColorFiler('red')" value="red">Red</option>
-            <option @click="setColorFiler('black')" value="black">Black</option>
-            <option @click="setColorFiler('gray')" value="gray">Gray</option>
-        </select>
-        &nbsp;&nbsp;&nbsp;
-        <select id="dropDown" class="brand-filter-dropdown nav-link">
-            <option @click="setBrandFiler('')" value="">All Brands</option>
-            <option @click="setBrandFiler('Gucci')" value="Gucci">Gucci</option>
-            <option @click="setBrandFiler('Balenciaga')" value="Balenciaga">Balenciaga</option>
-            <option @click="setBrandFiler('Versace')" value="Versace">Versace</option>
-        </select>
-
-        &nbsp;&nbsp;&nbsp;
-        <select style="color: white" id="dropDown" onchange="filterFunctionClicked()" class="size-filter-dropdown">
-            <option @click="setSizeFiler('')" value="">All Sizes</option>
-            <option @click="setSizeFiler('4')" value="4">size 4</option>
-            <option @click="setSizeFiler('5')" value="5">size 5</option>
-            <option @click="setSizeFiler('6')" value="6">size 6</option>
-            <option @click="setSizeFiler('7')" value="7">size 7</option>
-            <option @click="setSizeFiler('8')" value="8">size 8</option>
-        </select>
-        &nbsp;&nbsp;&nbsp;
-
-        <button @click="checkFilter()" class="btn btn-success btn-sm">Filter</button>
-    </div>
-    <br />
-    <br />
-
-    <body >
- 
-        <div style="width: 95%" class="container-fluid">
+    <body>
+        <div style="width:90%;margin-top: 2rem;" class="container-fluid">
             <div class="row">
-                <template class="shoe-box-template" x-for="shoe in shoes.shoesList">
-                    <div class="col-lg-3 col-md-4 col-6 shoe-box-wrapper">
-                        <div class="shoe-box card">
-                            <img style="height: 15rem" class="img-fluid" :src="shoe.image_url" alt="" />
-                            <div class="shoe-card-body card-body">
-                                <h6 x-text="shoe.shoe_name" style="margin-bottom: 0rem; font-weight: 600"></h6>
-                                <small style="color: gray" x-text="shoe.brand"> </small>
-
-                                <div class="row">
-                                    <div class="col-sm-7">
-                                        <p style="font-size: 0.9rem">R <span x-text="shoe.price"> </span></p>
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <p style="color: rgb(190, 123, 0); font-size: 0.9rem"><span x-text="shoe.quantity"></span> in stock</p>
-                                    </div>
-                                </div>
-                                
-                                <div x-show="cart.shoeInCart.includes(shoe.id)">
-                                    <button @click="cart.removeFromCart(shoe.id)"  style="width: 100%; border-radius: 0" class="btn btn-dark btn-block btn-sm">remove from cart</button>
-                                </div>
-                                <div x-show="!cart.shoeInCart.includes(shoe.id)">
-                                    <button @click="cart.addToCart(shoe.id)"  style="width: 100%; border-radius: 0" class="btn btn-dark btn-block btn-sm">add to cart</button>
-                                    <!-- <button @click="removeFromCart(shoe.id)"  style="width: 100%; border-radius: 0" class="btn btn-dark btn-block btn-sm">remove from cart</button> -->
-                                </div>
-
+                <div class="col-3">
+                    <h5 style="margin-bottom: 0.4rem;" >Filters</h5>
+     
+                  <div class="brand-filter"  style="margin-bottom: 0.5rem;" >
+                    <div style="border: 1px gray solid; padding: 0.4rem; width: 83%; margin-bottom: 0rem">
+                        <a href="#" @click="dom.setDropdownBrand()">
+                            <div style="font-size: 0.87rem; color: gray; margin: 0">
+                                Brands
+                                <span style="float: right; margin-right: 1rem">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                    </svg>
+                                </span>
                             </div>
-                        </div>
+                        </a>
+
+                        <h6 class="d-none" style="color: #202020; font-weight: 600; margin-bottom: 0">All Brands</h6>
                     </div>
-                </template>
+                    <div style="background-color: rgb(221, 221, 221); width: 95%; padding: 0.6rem" x-show="dom.dropdownBrand">
+                        <button class="btn btn-outline-secondary btn-sm" style="border-radius: 0; padding: 0.1rem 0.85rem; margin-bottom: 0.4rem">Gucci</button>
+                        <button class="btn btn-outline-secondary btn-sm" style="border-radius: 0; padding: 0.1rem 0.85rem; margin-bottom: 0.4rem">Gucci</button>
+                        <button class="btn btn-outline-secondary btn-sm" style="border-radius: 0; padding: 0.1rem 0.85rem; margin-bottom: 0.4rem">Gucci</button>
+                        <button class="btn btn-outline-secondary btn-sm" style="border-radius: 0; padding: 0.1rem 0.85rem; margin-bottom: 0.4rem">Gucci</button>
+                        <button class="btn btn-outline-secondary btn-sm" style="border-radius: 0; padding: 0.1rem 0.85rem; margin-bottom: 0.4rem">Gucci</button>
+                    </div>
+                  </div>
+
+                  <div class="brand-color" style="margin-bottom: 0.7rem;" >
+                    <div style="border: 1px gray solid; padding: 0.4rem; width: 83%; margin-bottom: 0rem">
+                        <a href="#" @click="dom.setDropdownColor()">
+                            <div style="font-size: 0.87rem; color: gray; margin: 0">
+                                Color
+                                <span style="float: right; margin-right: 1rem">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+
+                        <h6 class="d-none" style="color: #202020; font-weight: 600; margin-bottom: 0">All Brands</h6>
+                    </div>
+                    <div style="background-color: rgb(221, 221, 221); width: 95%; padding: 0.6rem" x-show="dom.dropdownColor">
+                        <button class="btn btn-outline-secondary btn-sm" style="border-radius: 0; padding: 0.1rem 0.85rem; margin-bottom: 0.4rem">Gucci</button>
+                        <button class="btn btn-outline-secondary btn-sm" style="border-radius: 0; padding: 0.1rem 0.85rem; margin-bottom: 0.4rem">Gucci</button>
+                        <button class="btn btn-outline-secondary btn-sm" style="border-radius: 0; padding: 0.1rem 0.85rem; margin-bottom: 0.4rem">Gucci</button>
+                        <button class="btn btn-outline-secondary btn-sm" style="border-radius: 0; padding: 0.1rem 0.85rem; margin-bottom: 0.4rem">Gucci</button>
+                        <button class="btn btn-outline-secondary btn-sm" style="border-radius: 0; padding: 0.1rem 0.85rem; margin-bottom: 0.4rem">Gucci</button>
+                    </div>
+                  </div>
+                  
+             
+                  
+                </div>
+
+                <div class="col-9">
+                    <div class="row">
+                        <template class="shoe-box-template" x-for="shoe in shoes.shoesList">
+                            <div style="padding:0.4rem" class="col-lg-4 col-md-3 col-6 shoe-box-wrapper">
+                                <div class="shoe-box card">
+                                    <img style="height: 15rem" class="img-fluid" :src="shoe.image_url" alt="" />
+                                    <div class="shoe-card-body card-body">
+                                        <h6 x-text="shoe.shoe_name" style="margin-bottom: 0rem; font-weight: 600"></h6>
+                                        <small style="color: gray" x-text="shoe.brand"> </small>
+
+                                        <div class="row">
+                                            <div class="col-sm-7">
+                                                <p style="font-size: 0.9rem">R <span x-text="shoe.price"> </span></p>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <p style="color: rgb(190, 123, 0); font-size: 0.9rem"><span x-text="shoe.stock_quantity"></span> in stock</p>
+                                            </div>
+                                        </div>
+
+                                        <div x-show="cart.shoeInCart.includes(shoe.id)">
+                                            <button @click="cart.removeFromCart(shoe.id)" style="width: 100%; border-radius: 0" class="btn btn-dark btn-block btn-sm">remove from cart</button>
+                                        </div>
+                                        <div x-show="!cart.shoeInCart.includes(shoe.id)">
+                                            <button @click="cart.addToCart(shoe.id)" style="width: 100%; border-radius: 0" class="btn btn-dark btn-block btn-sm">add to cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
             </div>
         </div>
 

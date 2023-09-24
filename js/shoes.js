@@ -125,11 +125,30 @@ function shoeCatalogue() {
         },
     };
 
+    let dom = {
+        dropdownBrand: false,
+        dropdownColor: false,
+        dropdownSize: false,
+        
+        setDropdownBrand(){
+            this.dropdownBrand = !this.dropdownBrand
+        },
+
+        setDropdownColor(){
+            this.dropdownColor = !this.dropdownColor
+        },
+
+        setDropdownSize(){
+            this.dropdownSize = !this.dropdownSize
+        },
+
+    }
+
     return {
         auth,
         shoes,
         cart,
-
+        dom,
         init() {
             this.shoes.getAllShoes();
             this.cart.getCartItems();

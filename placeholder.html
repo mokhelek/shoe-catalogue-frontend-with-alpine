@@ -209,3 +209,36 @@
 
     </div>
 </div>
+
+
+<!-- ********************************************************************* -->
+
+
+<div style="background-color: rgb(31, 31, 31); padding: 1rem 3rem 1rem 3rem; color: white" class="d-flex justify-content-center">
+    <select id="dropDown" onchange="filterFunctionClicked()" class="color-filter-dropdown nav-link">
+        <option @click="shoes.setColorFiler('')" value="" id="color-default">All Colors</option>
+        <option @click="shoes.setColorFiler('red')" value="red">Red</option>
+        <option @click="shoes.setColorFiler('black')" value="black">Black</option>
+        <option @click="shoes.setColorFiler('gray')" value="gray">Gray</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;
+    <select id="dropDown" class="brand-filter-dropdown nav-link">
+        <option @click="shoes.setBrandFiler('')" value="">All Brands</option>
+        <option @click="shoes.setBrandFiler('Gucci')" value="Gucci">Gucci</option>
+        <option @click="shoes.setBrandFiler('Balenciaga')" value="Balenciaga">Balenciaga</option>
+        <option @click="shoes.setBrandFiler('Versace')" value="Versace">Versace</option>
+    </select>
+
+    &nbsp;&nbsp;&nbsp;
+    <select style="color: white" id="dropDown" onchange="filterFunctionClicked()" class="size-filter-dropdown">
+        <option @click="setSizeFiler('')" value="">All Sizes</option>
+        <option @click="shoes.setSizeFiler('4')" value="4">size 4</option>
+        <option @click="shoes.setSizeFiler('5')" value="5">size 5</option>
+        <option @click="shoes.setSizeFiler('6')" value="6">size 6</option>
+        <option @click="shoes.setSizeFiler('7')" value="7">size 7</option>
+        <option @click="shoes.setSizeFiler('8')" value="8">size 8</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;
+
+    <button @click="shoes.checkFilter()" class="btn btn-success btn-sm">Filter</button>
+</div>
