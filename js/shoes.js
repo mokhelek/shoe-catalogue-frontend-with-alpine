@@ -31,8 +31,8 @@ function shoeCatalogue() {
         positiveFeedback: "",
         negativeFeedback: "",
         shoesList: [],
-        brandsList:[],
-        colorsList:[],
+        brandsList: [],
+        colorsList: [],
 
         colorFilterValue: "",
         sizeFilterValue: "",
@@ -74,21 +74,23 @@ function shoeCatalogue() {
 
         setColorFilter(color) {
             this.colorFilterValue = color;
-            this.checkFilter()
+            this.checkFilter();
         },
         setSizeFilter(size) {
+            console.log(size)
             this.sizeFilterValue = size;
+            this.checkFilter();
         },
         setBrandFilter(brand) {
             this.brandFilterValue = brand;
-            this.checkFilter()
+            this.checkFilter();
         },
 
         getAllShoes() {
             axios.get("https://shoe-catalogue-api.onrender.com/api/shoes").then((result) => {
                 this.shoesList = result.data;
-                this.getBrands()
-                this.getColors()
+                this.getBrands();
+                this.getColors();
             });
         },
 
@@ -97,14 +99,14 @@ function shoeCatalogue() {
                 this.shoesList = result.data;
             });
         },
-        getBrands(){
-            let brands = new Set(this.shoesList.map(shoe => shoe.brand));
+        getBrands() {
+            let brands = new Set(this.shoesList.map((shoe) => shoe.brand));
             this.brandsList = [...brands];
         },
-        getColors(){
-            let colors = new Set(this.shoesList.map(shoe => shoe.color));
+        getColors() {
+            let colors = new Set(this.shoesList.map((shoe) => shoe.color));
             this.colorsList = [...colors];
-        }
+        },
     };
 
     let cart = {
@@ -144,19 +146,18 @@ function shoeCatalogue() {
         dropdownColor: false,
         dropdownSize: false,
 
-        setDropdownBrand(){
-            this.dropdownBrand = !this.dropdownBrand
+        setDropdownBrand() {
+            this.dropdownBrand = !this.dropdownBrand;
         },
 
-        setDropdownColor(){
-            this.dropdownColor = !this.dropdownColor
+        setDropdownColor() {
+            this.dropdownColor = !this.dropdownColor;
         },
 
-        setDropdownSize(){
-            this.dropdownSize = !this.dropdownSize
+        setDropdownSize() {
+            this.dropdownSize = !this.dropdownSize;
         },
-
-    }
+    };
 
     return {
         auth,
@@ -169,7 +170,6 @@ function shoeCatalogue() {
             // todo: -> get the brands && colors
             // this.shoes.getBrands()
             // console.log(shoes.brandsList)
-
         },
     };
 }

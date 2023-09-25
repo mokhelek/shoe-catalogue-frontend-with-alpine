@@ -12,6 +12,14 @@
     scale: 1.3;
     box-shadow: 0 0 5px gray;
 }
+.selected-brand{
+    background-color: gray !important;
+    color: white !important;
+}
+.selected-size{
+    background-color: gray !important;
+    color: white !important;
+}
 
 .logo{
     font-family: Romla;
