@@ -89,7 +89,6 @@
         <div style="width: 90%; margin-top: 2rem" class="container-fluid">
             <div class="row">
                 <div class="col-3">
-                   
                     <h5 style="margin-bottom: 0.6rem">Filters</h5>
 
                     <div class="brand-filter" style="margin-bottom: 0.5rem">
@@ -108,16 +107,15 @@
                             <h6 class="d-none" style="color: #202020; font-weight: 600; margin-bottom: 0">All Brands</h6>
                         </div>
                         <div style="background-color: rgb(221, 221, 221); width: 95%; padding: 0.6rem" x-show="dom.dropdownBrand">
-                            <template x-for="brand in shoes.brandsList" >
-                                <button x-text="brand" @click="shoes.setBrandFilter(brand)" class="btn btn-outline-secondary btn-sm" style="border-radius: 0; padding: 0.1rem 0.85rem; margin-bottom: 0.4rem;margin-left:0.4rem"></button>
+                            <template x-for="brand in shoes.brandsList">
+                                <button x-text="brand" @click="shoes.setBrandFilter(brand)" class="btn btn-outline-secondary btn-sm" style="border-radius: 0; padding: 0.1rem 0.85rem; margin-bottom: 0.4rem; margin-left: 0.4rem"></button>
                             </template>
-                           
                         </div>
                     </div>
 
                     <div class="brand-color" style="margin-bottom: 0.7rem">
                         <div style="border: 1px gray solid; padding: 0.4rem; width: 83%; margin-bottom: 0rem">
-                            <a style="text-decoration: none" href="#" @click="dom.setDropdownColor()">
+                            <a style="text-decoration: none" @click="dom.setDropdownColor()">
                                 <div style="font-size: 0.87rem; color: gray; margin: 0">
                                     Color
                                     <span style="float: right; margin-right: 1rem">
@@ -131,9 +129,16 @@
                             <h6 class="d-none" style="color: #202020; font-weight: 600; margin-bottom: 0">All Colors</h6>
                         </div>
                         <div style="background-color: rgb(221, 221, 221); width: 95%; padding: 0.6rem" x-show="dom.dropdownColor">
-                            <template x-for="color in shoes.colorsList" >
-                                <button x-text="color" @click="shoes.setColorFilter(color)" class="btn btn-outline-secondary btn-sm" style="border-radius: 0; padding: 0.1rem 0.85rem; margin-bottom: 0.4rem;margin-right: 0.4rem;"></button>
-                            </template>
+                            <div class="d-flex">
+                                <button @click="shoes.setColorFilter('') ; colorTest('something')" id="colors" class="btn color-options" style="margin-bottom: 0.4rem">
+                                    <div style="height:1.7rem; width:1.7rem; border-radius:5px;border: 3px white solid">All</div>
+                                </button>
+                                <template x-for="color in shoes.colorsList">
+                                    <button @click="shoes.setColorFilter(color); colorTest(color)"  class="btn color-options" style="margin-bottom: 0.4rem">
+                                        <div :id="color" :style="'height:1.7rem; width:1.7rem; border-radius:5px;border: 3px white solid ;background-color:' + color "></div>
+                                    </button>
+                                </template>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -175,6 +180,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="js/shoes.js"></script>
-        <script src="js/main.DOM.js"></script>
+        <script defer src="js/main.DOM.js"></script>
     </body>
 </html>

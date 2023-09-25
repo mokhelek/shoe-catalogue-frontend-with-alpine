@@ -8,6 +8,11 @@
     src: url("Romla-ax6A5.otf");
 }
 
+.selected{
+    scale: 1.3;
+    box-shadow: 0 0 5px gray;
+}
+
 .logo{
     font-family: Romla;
     font-size: 1.8rem;
