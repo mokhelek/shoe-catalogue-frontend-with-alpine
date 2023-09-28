@@ -22,9 +22,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="login.html">login</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.html">sign-up</a>
-                        </li>
+                        <div x-show=" JSON.parse(localStorage.getItem('user')).adminUser " >
+                            <li class="nav-item">
+                                <a class="nav-link" href="newShoe.html">Add Stock</a>
+                            </li>
+                        </div>
+                        
                     </ul>
                 </div>
 
@@ -136,7 +139,7 @@
                             <h6 class="d-none" style="color: #202020; font-weight: 600; margin-bottom: 0">All Colors</h6>
                         </div>
                         <div style="background-color: rgb(221, 221, 221); width: 95%; padding: 0.5rem" x-show="dom.dropdownColor">
-                            <div class="d-flex">
+                            <div class="">
                                 <button @click="shoes.setColorFilter('') ; colorTest('all')" id="colors" class="btn color-options" style="margin-bottom: 0.4rem">
                                     <div id="all" style="height: 1.9rem; width: 1.9rem; font-size: 0.85rem; border-radius: 5px; border: 3px white solid">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
@@ -146,9 +149,9 @@
                                 </button>
                                 <template x-for="color in shoes.colorsList">
                                     <button @click="shoes.setColorFilter(color); colorTest(color)" class="btn color-options" style="margin-bottom: 0.4rem">
-                                        <div :id="color" :style="'height:1.7rem; width:1.7rem; border-radius:5px;border: 3px white solid ;background-color:' + color "></div>
+                                        <div :id="color" :style="'height:2rem; width:2rem; border-radius:5px;border: 3px white solid ;background-color:' + color "></div>
                                     </button>
-                                </template>
+                                </template>     
                             </div>
                         </div>
                     </div>

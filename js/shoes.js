@@ -2,6 +2,7 @@ function shoeCatalogue() {
     let auth = {
         username: "",
         password: "",
+        adminUser: false,
 
         login() {
             const userData = {
@@ -12,9 +13,12 @@ function shoeCatalogue() {
             axios
                 .post("https://shoe-catalogue-api.onrender.com/api/auth/login", userData)
                 .then((response) => {
-                    console.log(response.data.userAccessToken);
                     if (response.data.userAccessToken) {
                         localStorage.setItem("jwtToken", response.data.userAccessToken);
+                        localStorage.setItem("user", JSON.stringify(response.data.user) );
+                        this.adminUser = JSON.parse(localStorage.getItem('user')).adminUser ;
+                        this.adminUser = console.log(this.adminUser)
+                        
                         window.location.href = "index.html";
                     } else {
                         // Handle authentication error (e.g., show an error message).
