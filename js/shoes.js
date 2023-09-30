@@ -1,4 +1,15 @@
 function shoeCatalogue() {
+    let shoesDetails = {
+        shoe_name: "",
+        brand: "",
+        size: "",
+        price: "",
+        image_url: "",
+        color: "",
+        stock_quantity: 1,
+        description: "",
+    };
+
     let auth = {
         username: "",
         password: "",
@@ -15,10 +26,10 @@ function shoeCatalogue() {
                 .then((response) => {
                     if (response.data.userAccessToken) {
                         localStorage.setItem("jwtToken", response.data.userAccessToken);
-                        localStorage.setItem("user", JSON.stringify(response.data.user) );
-                        this.adminUser = JSON.parse(localStorage.getItem('user')).adminUser ;
-                        this.adminUser = console.log(this.adminUser)
-                        
+                        localStorage.setItem("user", JSON.stringify(response.data.user));
+                        this.adminUser = JSON.parse(localStorage.getItem("user")).adminUser;
+                        this.adminUser = console.log(this.adminUser);
+
                         window.location.href = "index.html";
                     } else {
                         // Handle authentication error (e.g., show an error message).
@@ -41,6 +52,18 @@ function shoeCatalogue() {
         colorFilterValue: "",
         sizeFilterValue: "",
         brandFilterValue: "",
+
+        addShoes() {
+            console.log(shoesDetails);
+            axios
+                .post("https://shoe-catalogue-api.onrender.com/api/shoes/", shoesDetails, { headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` } })
+                .then(() => {
+                    window.location.href = "index.html";
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        },
 
         checkFilter() {
             if (this.colorFilterValue != "" && this.sizeFilterValue == "" && this.brandFilterValue == "") {
@@ -75,13 +98,12 @@ function shoeCatalogue() {
                 this.getAllShoes();
             }
         },
-
         setColorFilter(color) {
             this.colorFilterValue = color;
             this.checkFilter();
         },
         setSizeFilter(size) {
-            console.log(size)
+            console.log(size);
             this.sizeFilterValue = size;
             this.checkFilter();
         },
@@ -89,7 +111,6 @@ function shoeCatalogue() {
             this.brandFilterValue = brand;
             this.checkFilter();
         },
-
         getAllShoes() {
             axios.get("https://shoe-catalogue-api.onrender.com/api/shoes").then((result) => {
                 this.shoesList = result.data;
@@ -97,7 +118,6 @@ function shoeCatalogue() {
                 this.getColors();
             });
         },
-
         getShoesByBrand(brandName) {
             axios.get(`https://shoe-catalogue-api.onrender.com/api/shoes/brand/${brandName}`).then((result) => {
                 this.shoesList = result.data;
@@ -164,6 +184,7 @@ function shoeCatalogue() {
     };
 
     return {
+        shoesDetails,
         auth,
         shoes,
         cart,
@@ -171,9 +192,6 @@ function shoeCatalogue() {
         init() {
             this.shoes.getAllShoes();
             this.cart.getCartItems();
-            // todo: -> get the brands && colors
-            // this.shoes.getBrands()
-            // console.log(shoes.brandsList)
         },
     };
 }

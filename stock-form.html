@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
         <link rel="stylesheet" href="css/style.css" />
+        <script src="//unpkg.com/alpinejs" defer></script>
         <title>New Shoe</title>
     </head>
 
@@ -22,7 +23,6 @@
                         </li>
                     </ul>
                 </div>
-
 
                 <div class="col-4">
                     <div align="center">
@@ -42,8 +42,8 @@
                             </div>
                         </a>
 
-                        <div class="d-flex" style="margin-left: 2rem; border: 1px rgb(206, 206, 206) solid; padding-left: 0.3rem;height: 35px;">
-                            <input style="width: 150px;" class="title-search-filter" onchange="filterFunctionClicked()" type="search" placeholder="search shoes ..." aria-label="Search" />
+                        <div class="d-flex" style="margin-left: 2rem; border: 1px rgb(206, 206, 206) solid; padding-left: 0.3rem; height: 35px">
+                            <input style="width: 150px" class="title-search-filter" onchange="filterFunctionClicked()" type="search" placeholder="search shoes ..." aria-label="Search" />
 
                             <a href="/#shoes" type="submit" style="margin-left: 1.8rem; border: none; border-radius: 0" class="btn btn-dark nav-item">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -53,63 +53,63 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </nav>
 
     <style>
-        .form-control{
+        .form-control {
             border-radius: 0 !important;
         }
     </style>
 
-    <body>
+    <body  x-data="shoeCatalogue" >
         <div class="container">
             <br /><br />
             <div class="row justify-content-center">
                 <div class="col-11 col-sm-9 col-md-7 col-lg-6">
                     <center>
-                        <h2 style="margin:1rem" > ~ Add New Shoes ~</h2>
+                        <h2 style="margin: 1rem">~ Add New Shoes ~</h2>
                     </center>
-                    <form class="new-shoe-form">
-                        <input class="form-control" type="text" placeholder="Enter shoe name" id="title" />
-                        <br />
-                        <input class="form-control" type="text" placeholder="Enter shoe brand" id="brand" />
 
-                        <br>
-                        <div style="margin:0" class="input-group mb-3">
-                            <input type="number" class="form-control" id="size" placeholder="Shoe size" aria-label="size">
+                    <form @submit.prevent="shoes.addShoes()" class="new-shoe-form">
+                        <input x-model="shoesDetails.shoe_name" class="form-control" type="text" placeholder="Enter shoe name" id="title" />
+                        <br />
+                        <input x-model="shoesDetails.brand"  class="form-control" type="text" placeholder="Enter shoe brand" id="brand" />
+
+                        <br />
+                        <div style="margin: 0" class="input-group mb-3">
+                            <input x-model="shoesDetails.size" type="text" class="form-control" id="size" placeholder="Shoe size" aria-label="size" />
                             <span class="input-group-text">R</span>
-                            <input type="number" class="form-control" id="price" placeholder="Shoe price" aria-label="price">
+                            <input x-model="shoesDetails.price" type="text" class="form-control" id="price" placeholder="Shoe price" aria-label="price" />
                         </div>
-                        <!-- <br> -->
-                        <input class="form-control" type="url" id="image" placeholder="Enter image url" />
+               
+                        <input x-model="shoesDetails.image_url" class="form-control" type="url" id="image" placeholder="Enter image url" />
                         <br />
-                        <label for="color">Shoe Color</label><br>
-                        <input class="form-control" type="color" name="color" value="#b000e0" id="color" />
+                        <label for="color">Shoe Color</label><br />
+                        <input x-model="shoesDetails.color" class="form-control" type="color" name="color" value="#b000e0" id="color" />
                         <br />
-                        <input style="width: 100%;" type="submit" class="btn btn-outline-success btn-md"  value="submit" />
+                        <input style="width: 100%" type="submit" class="btn btn-outline-success btn-md" value="submit" />
                     </form>
                 </div>
-                <div  class="col-6 col-sm-3 col-md-5 col-lg-3 ">
-                    <div style="height: 100%;" class="d-flex justify-content-center align-items-center">
+
+                <div class="col-6 col-sm-3 col-md-5 col-lg-3">
+                    <div style="height: 100%" class="d-flex justify-content-center align-items-center">
                         <div>
-                            <h4 style="margin-bottom: 1rem;">Quantity</h4>
+                            <h4 style="margin-bottom: 1rem">Quantity</h4>
                             <form method="post" class="new-shoe-form">
-                                <input value="1" id="quantity" style="height: 120px;width: 120px;font-size: 1.5rem;text-align: center;font-weight: 600;" type="number">
+                                <input x-model="shoesDetails.stock_quantity" value="1" id="quantity" style="height: 120px; width: 120px; font-size: 1.5rem; text-align: center; font-weight: 600" type="number" />
                             </form>
                         </div>
                     </div>
                 </div>
-
             </div>
             <br /><br /><br /><br />
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-        <script src="js/shoe-data.js"></script>
-        <script src="js/business-logic.js"></script>
-        <script src="js/newShoe.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="js/shoes.js"></script>
+        <script defer src="js/main.DOM.js"></script>
     </body>
 </html>
