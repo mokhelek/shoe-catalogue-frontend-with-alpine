@@ -6,6 +6,7 @@ document.addEventListener("alpine:init", () => {
 let prevColorSelection = ""
 
 function colorTest(x){
+    console.log(x)
     clearPreviousSelection(prevColorSelection);
     let selectedColor = document.querySelector(`#${x}`)
     selectedColor.classList.add("selected")

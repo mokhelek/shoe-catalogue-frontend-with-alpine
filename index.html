@@ -148,8 +148,8 @@
                                     </div>
                                 </button>
                                 <template x-for="color in shoes.colorsList">
-                                    <button @click="shoes.setColorFilter(color); colorTest(color)" class="btn color-options" style="margin-bottom: 0.4rem">
-                                        <div :id="color" :style="'height:2rem; width:2rem; border-radius:5px;border: 3px white solid ;background-color:' + color "></div>
+                                    <button @click="shoes.setColorFilter(color); colorTest('color-' + color.slice(1))" class="btn color-options" style="margin-bottom: 0.4rem">
+                                        <div :id="'color-' + color.slice(1)" :style="'height:2rem; width:2rem; border-radius:5px;border: 3px white solid ;background-color:' + color "></div>
                                     </button>
                                 </template>     
                             </div>

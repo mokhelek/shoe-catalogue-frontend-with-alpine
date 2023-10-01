@@ -99,7 +99,12 @@ function shoeCatalogue() {
             }
         },
         setColorFilter(color) {
-            this.colorFilterValue = color;
+            let firstChar = color.slice(0,1)
+            if(firstChar == "#"){
+                this.colorFilterValue = color.slice(1)  ;
+            }else{
+                this.colorFilterValue = color ;
+            }
             this.checkFilter();
         },
         setSizeFilter(size) {
