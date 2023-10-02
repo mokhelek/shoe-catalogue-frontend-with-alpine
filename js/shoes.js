@@ -145,7 +145,7 @@ function shoeCatalogue() {
         message: "This is a test message",
         cartList: [],
         shoeInCart: [],
-
+        isLoading:true,
         items:0,
         products:0,
         total:0,
@@ -155,6 +155,7 @@ function shoeCatalogue() {
                 this.cartList = result.data;
                 this.checkShoeInCart();
                 this.orderSummery()
+                this.isLoading = false
             });
         },
         addToCart(id) {

@@ -60,7 +60,45 @@
     <body>
         <br />
 
-        <div style="width: 90%; padding-bottom: 1.5rem" class="container-fluid">
+        <div x-show="cart.isLoading" class="container">
+            <div class="row">
+                <div class="col-8">
+                    <div class="container">
+                        <div style="margin-bottom: 1rem;height: 6rem;" class="row">
+                            <div class="col-3">
+                                <div class="loading-container"></div>
+                            </div>
+                            <div class="col-9">
+                                <div class="loading-container"></div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem;height: 6rem;" class="row">
+                            <div class="col-3">
+                                <div class="loading-container"></div>
+                            </div>
+                            <div class="col-9">
+                                <div class="loading-container"></div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem;height: 6rem;" class="row">
+                            <div class="col-3">
+                                <div class="loading-container"></div>
+                            </div>
+                            <div class="col-9">
+                                <div class="loading-container"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="loading-container" style="height: 80vh;" >
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div x-show="!cart.isLoading"  style="width: 90%; padding-bottom: 1.5rem" class="container-fluid">
             <div class="row">
                 <div class="col-9">
                     <template x-for="item in cart.cartList">
@@ -116,44 +154,45 @@
                 </div>
                 <div class="col-3">
                     <div class="cart-summery">
-                        <div style="background-color: rgba(236, 236, 236, 0.712);padding: 1rem;border-radius: 5px;height: 80vh;" >
-                                <p style="font-size: 1.1rem;margin-bottom: 1rem;"> Order Summery</p>
-                                <div style="padding: 0rem 1rem;" >
-                                    <p style="color: #525252;font-size: 0.9rem;" >Products <span style="float: right;font-size: 1.1rem;" > <span style="font-size: 1.2rem;color: #222222;" x-text="cart.products" >&times;</span></span> </p>
-                                    <p style="color: #525252;font-size: 0.9rem;" >Items <span style="float: right;font-size: 1.1rem;" > <span style="font-size: 1.2rem;color: #222222;"  x-text="cart.items"  >&times;</span></span> </p>
-                                    <p style="color: #525252;font-size: 1.2rem;font-weight: 600;" >Total <span style="float: right;font-size: 1.1rem;" > R <span x-text="(cart.total).toFixed(2)" ></span> </span> </p>
-                                
-                                    <center>
-                                        <button style="border-radius: 0;" class="btn btn-outline-secondary" onclick="shoppingCart().clearCartItems()">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
-                                                <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
-                                              </svg>
-                                        </button>
+                        <div style="background-color: rgba(236, 236, 236, 0.712); padding: 1rem; border-radius: 5px; height: 80vh">
+                            <p style="font-size: 1.1rem; margin-bottom: 1rem">Order Summery</p>
+                            <div style="padding: 0rem 1rem">
+                                <p style="color: #525252; font-size: 0.9rem">
+                                    Products <span style="float: right; font-size: 1.1rem"> <span style="font-size: 1.2rem; color: #222222" x-text="cart.products">&times;</span></span>
+                                </p>
+                                <p style="color: #525252; font-size: 0.9rem">
+                                    Items <span style="float: right; font-size: 1.1rem"> <span style="font-size: 1.2rem; color: #222222" x-text="cart.items">&times;</span></span>
+                                </p>
+                                <p style="color: #525252; font-size: 1.2rem; font-weight: 600">
+                                    Total <span style="float: right; font-size: 1.1rem"> R <span x-text="(cart.total).toFixed(2)"></span> </span>
+                                </p>
+
+                                <center>
+                                    <button style="border-radius: 0" class="btn btn-outline-secondary" onclick="shoppingCart().clearCartItems()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
+                                            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+                                        </svg>
+                                    </button>
+                                    &nbsp;
+                                    <button style="border-radius: 0" onclick="buyButtonClicked()" class="btn btn-dark" href="#">
+                                        Checkout &nbsp;
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                        </svg>
+                                    </button>
+                                    <br />
+                                    <div>
+                                        <img height="70" src="/images/icons/paypal.png" alt="" />
                                         &nbsp;
-                                        <button style="border-radius: 0;"  onclick="buyButtonClicked()" class="btn btn-dark" href="#">
-                                            Checkout &nbsp; <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                                              </svg>
-                                        </button>
-                                        <br>
-                                        <div>
-                                            <img height="70"  src="/images/icons/paypal.png" alt="">
-                                            &nbsp;
-                                            <img height="40"  src="/images/icons/shopping.png" alt="">
-                                            &nbsp;
-                                            <img height="40"  src="/images/icons/visa.png" alt="">
-                                        </div>
-                                    </center>
-
-
-
-                                </div>
-                              
-                    
+                                        <img height="40" src="/images/icons/shopping.png" alt="" />
+                                        &nbsp;
+                                        <img height="40" src="/images/icons/visa.png" alt="" />
+                                    </div>
+                                </center>
+                            </div>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
