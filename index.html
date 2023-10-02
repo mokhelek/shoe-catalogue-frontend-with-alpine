@@ -22,12 +22,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="login.html">login</a>
                         </li>
-                        <div x-show=" JSON.parse(localStorage.getItem('user')).adminUser " >
+                        <div x-show=" JSON.parse(localStorage.getItem('user')).adminUser ">
                             <li class="nav-item">
                                 <a class="nav-link" href="stock-form.html">Add Stock</a>
                             </li>
                         </div>
-                        
                     </ul>
                 </div>
 
@@ -82,14 +81,38 @@
     </nav>
 
     <br /><br />
+
     <center>
         <small style="color: rgb(97, 97, 97)"> ~ Made with the finest materials ~</small>
         <h1 id="shoes">Walk In Style With Our Luxurious Shoes</h1>
-        <div style="height: 0.4rem; width: 0.4rem; background-color: rgb(25, 25, 25); margin-top: 0.4rem"></div>
+        <div style="height: 0.4rem; width: 7rem; background-color: rgb(25, 25, 25); margin-top: 0.4rem"></div>
     </center>
+    <br />
 
     <body>
-        <div style="width: 90%; margin-top: 2rem" class="container-fluid">
+        <div x-show="shoes.isLoading" class="container loading">
+            <div class="row">
+                <div class="col-4">
+                    <div class="container">
+                        <div style="height: 3rem; margin-bottom: 1rem;width:80%;" class="row loading-container "></div>
+                        <div style="height: 3rem; margin-bottom: 1rem;width:90%;" class="row loading-container "></div>
+                        <div style="height: 3rem; margin-bottom: 1rem;width:60%;" class="row loading-container "></div>
+                    </div>
+                    
+                </div>
+                <div class="col-8">
+                    <div class="row">
+                        <template x-for="let i in [0,0,0,0,0,0]">
+                            <div class="col-4">
+                            <div class="loading-container" style="height: 12rem; margin-bottom: 1rem" ></div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div x-show="!shoes.isLoading" style="width: 90%; margin-top: 2rem" class="container-fluid">
             <div class="row">
                 <div class="col-3">
                     <h5 style="margin-bottom: 0.6rem">Filters</h5>
@@ -109,16 +132,14 @@
                         </div>
 
                         <div style="background-color: rgb(221, 221, 221); width: 95%; padding: 0.6rem" x-show="dom.dropdownBrand">
-
-                            <button id="all-brands" @click="shoes.setBrandFilter('') ; brandSelection('all-brands')"  class="btn btn-outline-secondary btn-sm" style="border-radius: 0; padding: 0.1rem 0.85rem; margin-bottom: 0.4rem; margin-left: 0.4rem">
+                            <button id="all-brands" @click="shoes.setBrandFilter('') ; brandSelection('all-brands')" class="btn btn-outline-secondary btn-sm" style="border-radius: 0; padding: 0.1rem 0.85rem; margin-bottom: 0.4rem; margin-left: 0.4rem">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
-                                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
-                                  </svg>&nbsp;
-                                All Shoes
+                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
+                                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" /></svg
+                                >&nbsp; All Shoes
                             </button>
                             <template x-for="brand in shoes.brandsList">
-                                <button :id="brand.replace(/ /g, '-')"  x-text="brand" @click="shoes.setBrandFilter(brand) ; brandSelection(brand.replace(/ /g, '-'))" class="btn btn-outline-secondary btn-sm" style="border-radius: 0; padding: 0.1rem 0.85rem; margin-bottom: 0.4rem; margin-left: 0.4rem"></button>
+                                <button :id="brand.replace(/ /g, '-')" x-text="brand" @click="shoes.setBrandFilter(brand) ; brandSelection(brand.replace(/ /g, '-'))" class="btn btn-outline-secondary btn-sm" style="border-radius: 0; padding: 0.1rem 0.85rem; margin-bottom: 0.4rem; margin-left: 0.4rem"></button>
                             </template>
                         </div>
                     </div>
@@ -149,13 +170,12 @@
                                 </button>
                                 <template x-for="color in shoes.colorsList">
                                     <button @click="shoes.setColorFilter(color); colorTest('color-' + color.slice(1))" class="btn color-options" style="margin-bottom: 0.4rem">
-                                        <div :id="'color-' + color.slice(1)" :style="'height:2rem; width:2rem; border-radius:5px;border: 3px white solid ;background-color:' + color "></div>
-                                    </button><br>
-                                </template>     
+                                        <div :id="'color-' + color.slice(1)" :style="'height:2rem; width:2rem; border-radius:5px;border: 3px white solid ;background-color:' + color "></div></button
+                                    ><br />
+                                </template>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="brand-color" style="margin-bottom: 0.7rem">
                         <div style="border: 1px gray solid; padding: 0.4rem; width: 83%; margin-bottom: 0rem">
@@ -175,7 +195,7 @@
                         <div style="background-color: rgb(221, 221, 221); width: 95%; padding: 0.5rem" x-show="dom.dropdownSize">
                             <div class="">
                                 <button @click="shoes.setSizeFilter(''); sizeSelection('all-sizes')" class="btn color-options" style="margin-bottom: 0.15rem">
-                                    <div id="all-sizes" style="height:2rem; width:2rem; border-radius:5px;border: 1px #747474 solid ;"> 
+                                    <div id="all-sizes" style="height: 2rem; width: 2rem; border-radius: 5px; border: 1px #747474 solid">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                                             <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
                                         </svg>
@@ -183,16 +203,12 @@
                                 </button>
                                 <template x-for="size in [4, 5, 6, 7, 8, 9, 10, 11]">
                                     <button @click="shoes.setSizeFilter(size); sizeSelection('size-'+size)" class="btn" style="margin-bottom: 0.15rem">
-                                        <div :id="'size-'+size"  x-text="size" style="height:2rem; width:2rem; border-radius:5px;border: 1px #747474 solid ;"></div>
+                                        <div :id="'size-'+size" x-text="size" style="height: 2rem; width: 2rem; border-radius: 5px; border: 1px #747474 solid"></div>
                                     </button>
                                 </template>
                             </div>
                         </div>
                     </div>
-
-
-
-
                 </div>
 
                 <div class="col-9">

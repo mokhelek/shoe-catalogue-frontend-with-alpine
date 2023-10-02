@@ -53,6 +53,8 @@ function shoeCatalogue() {
         sizeFilterValue: "",
         brandFilterValue: "",
 
+        isLoading: true,
+
         addShoes() {
             console.log(shoesDetails);
             axios
@@ -121,6 +123,7 @@ function shoeCatalogue() {
                 this.shoesList = result.data;
                 this.getBrands();
                 this.getColors();
+                this.isLoading = false
             });
         },
         getShoesByBrand(brandName) {

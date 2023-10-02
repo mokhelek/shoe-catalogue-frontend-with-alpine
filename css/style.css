@@ -232,3 +232,25 @@ td{
         height: 50px !important;
     }
 }
+
+
+
+
+/* Define the container styles */
+.loading-container {
+    /* width: 100px; */
+    height: 100px;
+    background-color: darkgray;
+    animation: pulse 1s infinite alternate; /* Apply the pulse animation */
+  }
+  
+  /* Define the keyframes for the pulse animation */
+  @keyframes pulse {
+    0% {
+      background-color: darkgray;
+    }
+    100% {
+      background-color: lightgray;
+    }
+  }
+  
