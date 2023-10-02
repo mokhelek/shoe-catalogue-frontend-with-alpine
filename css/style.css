@@ -141,29 +141,22 @@ p{
     font-family: "Cormorant Garamond";
 }
 
-#carouselExampleIndicators{
-    background-color: black !important;
-}
-.carousel-item div{
-    opacity: 0.5;
-    background-repeat: no-repeat;
-    background-size:cover;
-    height: 80vh;
-}
 .hero-section{
     background-image: url("../images/doodoosonic-0t7PNNZlTC0-unsplash.jpg");
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    /* opacity: 0.7; */
   
 }
 .hero-text{
     display: flex;
-    color: #fcfcfc;
+    /* color: #ffffff; */
     justify-content: center;
     align-items: center;
-    height: 80%;
+    height: 50%;
+   
 }
 
 .carousel-two{

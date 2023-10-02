@@ -195,9 +195,9 @@ function shoeCatalogue() {
     };
 
     let dom = {
-        dropdownBrand: false,
-        dropdownColor: false,
-        dropdownSize: false,
+        dropdownBrand: true,
+        dropdownColor: true,
+        dropdownSize: true,
         searchBar: false,
 
         setDropdownBrand() {

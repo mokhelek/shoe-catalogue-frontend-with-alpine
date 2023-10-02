@@ -11,11 +11,7 @@
         <title>Kat'Walker | Mokhele Katleho</title>
     </head>
 
-
-
-
-
-    <div class="hero-section" >
+    <div style="background-color: black">
         <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light">
             <div class="container">
                 <!-- Left-side navigation options -->
@@ -30,13 +26,14 @@
                         <a class="nav-link" href="#">About</a>
                     </li>
                 </ul>
-    
+
                 <!-- Logo -->
-                <a class="navbar-brand" href="#"> <h1 class="logo" >Kat'Walker</h1> </a>
-    
+                <a class="navbar-brand" href="#">
+                    <h1 class="logo">Kat'Walker<span style="color: orange; letter-spacing: 0">//</span></h1>
+                </a>
+
                 <!-- Right-side navigation options -->
                 <ul class="navbar-nav ml-auto">
-    
                     <li class="nav-item">
                         <a href="#shoes" type="submit" style="margin-left: 0.5rem; border: none; border-radius: 0" class="btn nav-link nav-item">
                             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -45,11 +42,11 @@
                             </svg>
                         </a>
                     </li>
-    
+
                     <li class="nav-item">
                         <form @submit.prevent="shoes.searchShoes()">
-                            <div class="d-flex" >
-                                <input x-show="dom.searchBar" style="width: 120px;" class="title-search-filter" type="search" placeholder="search shoes" aria-label="Search" />
+                            <div class="d-flex">
+                                <input x-show="dom.searchBar" style="width: 120px" class="title-search-filter" type="search" placeholder="search shoes" aria-label="Search" />
                                 <button @click="dom.setSearchBar()" type="submit" style="margin-left: 0.5rem; border: none; border-radius: 0" class="btn btn-outline-light nav-link nav-item">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -57,9 +54,8 @@
                                 </button>
                             </div>
                         </form>
-
                     </li>
-    
+
                     <li class="nav-item">
                         <a href="cart.html" class="btn btn-sm position-relative nav-link">
                             <div>
@@ -70,25 +66,31 @@
                             </div>
                         </a>
                     </li>
-    
                 </ul>
             </div>
         </nav>
-
-        <div class="hero-text" >
-            <h1>Step Into Elegance</h1>
+        <div class="hero-section">
+            <div class="hero-text">
+                <div>
+                    <div align="center" class="text-container">
+                        <small>Welcome to Kat'Walker</small>
+                        <h1>Step Into Elegance</h1>
+                        <p style="width: 100%">Step into luxury with our collection of high-end shoes. From designer brands to handcrafted masterpieces, our shoes will make you feel like a million bucks</p>
+                        <br />
+                        <a id="cta" href="#shoes" class="btn btn-lg">
+                            Shop Now &nbsp;
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right text-warning" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-
-
-
     </div>
-    <br>
-
+    <br />
 
     <body>
-
-
         <br /><br />
         <center>
             <small style="color: rgb(97, 97, 97)"> ~ Made with the finest materials ~</small>
@@ -96,7 +98,6 @@
             <div style="height: 0.4rem; width: 7rem; background-color: rgb(25, 25, 25); margin-top: 0.4rem"></div>
         </center>
         <br />
-
 
         <div x-show="shoes.isLoading" class="container loading">
             <div class="row">
