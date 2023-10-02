@@ -143,10 +143,15 @@ function shoeCatalogue() {
         cartList: [],
         shoeInCart: [],
 
+        items:0,
+        products:0,
+        total:0,
+
         getCartItems() {
             axios.get("https://shoe-catalogue-api.onrender.com/api/cart/", { headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` } }).then((result) => {
                 this.cartList = result.data;
                 this.checkShoeInCart();
+                this.orderSummery()
             });
         },
         addToCart(id) {
@@ -168,6 +173,15 @@ function shoeCatalogue() {
                 this.getCartItems();
             });
         },
+        orderSummery(){
+            this.items = 0;
+            this.total = 0
+            this.products = this.cartList.length
+            for(let i of this.cartList){
+                this.items =  Number(this.items) + Number(i.quantity) ;
+                this.total = this.total + (Number(i.price) * Number(i.quantity)) ;
+            }
+        }
     };
 
     let dom = {
