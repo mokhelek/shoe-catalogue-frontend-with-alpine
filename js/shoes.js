@@ -192,6 +192,7 @@ function shoeCatalogue() {
         dropdownBrand: false,
         dropdownColor: false,
         dropdownSize: false,
+        searchBar: false,
 
         setDropdownBrand() {
             this.dropdownBrand = !this.dropdownBrand;
@@ -204,6 +205,9 @@ function shoeCatalogue() {
         setDropdownSize() {
             this.dropdownSize = !this.dropdownSize;
         },
+        setSearchBar(){
+            this.searchBar = !this.searchBar;
+        }
     };
 
     return {

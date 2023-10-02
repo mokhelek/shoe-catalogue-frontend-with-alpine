@@ -52,11 +52,21 @@
 
 .navbar-expand-lg{
     height: 65px; 
-    box-shadow: 0 0 6px rgb(58, 58, 58);
+    /* box-shadow: 0 0 6px rgb(58, 58, 58); */
     background-color: white;
     padding: 0.6rem;
 }
 
+.navbar {
+    background-color: #ababab23 !important;
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px rgba(128, 128, 128, 0.468) solid;
+}
+#nav-menu {
+    background-color: #16282b00;
+}
 
 .title-search-filter{
     background: none;
@@ -118,16 +128,16 @@ td{
     /* height: 100vh; */
     margin-bottom: 3rem;
 }
+
 .text-container{
     color: rgb(238, 238, 238);
-    
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
-   
 }
+
 .text-container h1{
     font-size: 4rem;
     font-family: serif;
@@ -254,3 +264,18 @@ td{
     }
   }
   
+
+/* Add your custom CSS styles here */
+/* Example: */
+.navbar {
+    background-color: #3498db; /* Change to your desired background color */
+}
+
+.navbar-brand {
+    font-weight: bold; /* Make the logo text bold */
+    color: #353535; /* Change text color */
+}
+
+.nav-link {
+    color: #4f4f4f; /* Change link text color */
+}
