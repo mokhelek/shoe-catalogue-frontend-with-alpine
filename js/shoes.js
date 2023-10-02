@@ -101,11 +101,11 @@ function shoeCatalogue() {
             }
         },
         setColorFilter(color) {
-            let firstChar = color.slice(0,1)
-            if(firstChar == "#"){
-                this.colorFilterValue = color.slice(1)  ;
-            }else{
-                this.colorFilterValue = color ;
+            let firstChar = color.slice(0, 1);
+            if (firstChar == "#") {
+                this.colorFilterValue = color.slice(1);
+            } else {
+                this.colorFilterValue = color;
             }
             this.checkFilter();
         },
@@ -123,7 +123,7 @@ function shoeCatalogue() {
                 this.shoesList = result.data;
                 this.getBrands();
                 this.getColors();
-                this.isLoading = false
+                this.isLoading = false;
             });
         },
         getShoesByBrand(brandName) {
@@ -145,17 +145,17 @@ function shoeCatalogue() {
         message: "This is a test message",
         cartList: [],
         shoeInCart: [],
-        isLoading:true,
-        items:0,
-        products:0,
-        total:0,
+        isLoading: true,
+        items: 0,
+        products: 0,
+        total: 0,
 
         getCartItems() {
             axios.get("https://shoe-catalogue-api.onrender.com/api/cart/", { headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` } }).then((result) => {
                 this.cartList = result.data;
                 this.checkShoeInCart();
-                this.orderSummery()
-                this.isLoading = false
+                this.orderSummery();
+                this.isLoading = false;
             });
         },
         addToCart(id) {
@@ -177,15 +177,15 @@ function shoeCatalogue() {
                 this.getCartItems();
             });
         },
-        orderSummery(){
+        orderSummery() {
             this.items = 0;
-            this.total = 0
-            this.products = this.cartList.length
-            for(let i of this.cartList){
-                this.items =  Number(this.items) + Number(i.quantity) ;
-                this.total = this.total + (Number(i.price) * Number(i.quantity)) ;
+            this.total = 0;
+            this.products = this.cartList.length;
+            for (let i of this.cartList) {
+                this.items = Number(this.items) + Number(i.quantity);
+                this.total = this.total + Number(i.price) * Number(i.quantity);
             }
-        }
+        },
     };
 
     let dom = {

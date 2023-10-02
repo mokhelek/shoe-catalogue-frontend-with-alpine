@@ -250,7 +250,7 @@ td{
       background-color: darkgray;
     }
     100% {
-      background-color: lightgray;
+      background-color: rgb(241, 241, 241);
     }
   }
   

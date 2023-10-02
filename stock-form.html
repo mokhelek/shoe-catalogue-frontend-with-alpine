@@ -86,8 +86,10 @@
                
                         <input x-model="shoesDetails.image_url" class="form-control" type="url" id="image" placeholder="Enter image url" />
                         <br />
+                        <textarea  x-model="shoesDetails.description" style="width: 100%;border: 1px rgb(180, 180, 180) solid;" rows="3" placeholder="Shoe Description goes here" ></textarea>
+                        <br>
                         <label for="color">Shoe Color</label><br />
-                        <input x-model="shoesDetails.color" class="form-control" type="color" name="color" value="#b000e0" id="color" />
+                        <input x-model="shoesDetails.color" class="form-control" type="color" name="color" value="#0f0" id="color" />
                         <br />
                         <input style="width: 100%" type="submit" class="btn btn-outline-success btn-md" value="submit" />
                     </form>
@@ -99,6 +101,7 @@
                             <h4 style="margin-bottom: 1rem">Quantity</h4>
                             <form method="post" class="new-shoe-form">
                                 <input x-model="shoesDetails.stock_quantity" value="1" id="quantity" style="height: 120px; width: 120px; font-size: 1.5rem; text-align: center; font-weight: 600" type="number" />
+                              
                             </form>
                         </div>
                     </div>
