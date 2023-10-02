@@ -25,8 +25,10 @@
     font-family: Romla;
     font-size: 1.8rem;
     font-weight: 700;
-    color: black !important;
+    color: rgb(233, 233, 233) !important;
     text-decoration: none;
+    letter-spacing: 0.5rem;
+    
 }
 
 #cta{
@@ -39,22 +41,20 @@
     border: 1px white solid;
 }
 
-
-.first-menu{
-    display: flex;
-    margin-top: 1rem;
+.title-search-filter{
+    background-color: white !important;
+    border: 1px white solid;
+    border-radius: 20px;
+    height: 80%;
+    padding: 0.5rem;
 }
-.first-menu li{
-    list-style: none;
-    margin: 0rem 1rem 0rem 1rem;
-}
-.second-menu{margin-top: 0.5rem;}
 
 .navbar-expand-lg{
     height: 65px; 
     /* box-shadow: 0 0 6px rgb(58, 58, 58); */
     background-color: white;
     padding: 0.6rem;
+    color: rgb(204, 203, 203);
 }
 
 .navbar {
@@ -64,9 +64,12 @@
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px rgba(128, 128, 128, 0.468) solid;
 }
-#nav-menu {
-    background-color: #16282b00;
+.nav-link {
+   color: #eeeeee;
+   font-family: 'Railway';
+   font-size: 0.9rem;
 }
+
 
 .title-search-filter{
     background: none;
@@ -113,10 +116,6 @@ p{
     margin-bottom: 0.7rem;
 }
 
-td{
-    width: 300px;
-}
-
 
 #dropDown{
     border: none;
@@ -124,10 +123,6 @@ td{
     margin: 0rem;
 }
 
-.slide-wrapper{
-    /* height: 100vh; */
-    margin-bottom: 3rem;
-}
 
 .text-container{
     color: rgb(238, 238, 238);
@@ -155,9 +150,20 @@ td{
     background-size:cover;
     height: 80vh;
 }
-.carousel-one{
-    background-image: url("../images/michael-lee-5Z9bgfRZLLE-unsplash.jpg");
+.hero-section{
+    background-image: url("../images/doodoosonic-0t7PNNZlTC0-unsplash.jpg");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
   
+}
+.hero-text{
+    display: flex;
+    color: #fcfcfc;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
 }
 
 .carousel-two{
@@ -171,47 +177,6 @@ td{
     background-image: url("../images/raden-prasetya-EvjmSg1xurI-unsplash.jpg");
 }
 
-
-.colors-options{
-    min-height: 100px;
-    background-color: rgb(216, 216, 216);
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-}
-
-.color{
-    height: 25px;
-    width:25px;
-    background-color: green;
-    border-radius: 50%;
-    margin:1.5rem ;
-    border: 2px white solid;
-}
-.color1{
-    height: 25px;
-    width:25px;
-    background-color: brown;
-    border-radius: 50%;
-    margin:1.5rem ;
-    border: 2px white solid;
-}
-.color2{
-    height: 25px;
-    width:25px;
-    background-color: black;
-    border-radius: 50%;
-    margin:1.5rem ;
-    border: 2px white solid;
-}
-.color3{
-    height: 25px;
-    width:25px;
-    background-color: red;
-    border-radius: 50%;
-    margin:1.5rem ;
-    border: 2px white solid;
-}
 
 
 @media screen and (max-width:500px) {
@@ -267,15 +232,4 @@ td{
 
 /* Add your custom CSS styles here */
 /* Example: */
-.navbar {
-    background-color: #3498db; /* Change to your desired background color */
-}
 
-.navbar-brand {
-    font-weight: bold; /* Make the logo text bold */
-    color: #353535; /* Change text color */
-}
-
-.nav-link {
-    color: #4f4f4f; /* Change link text color */
-}

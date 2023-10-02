@@ -52,6 +52,7 @@ function shoeCatalogue() {
         colorFilterValue: "",
         sizeFilterValue: "",
         brandFilterValue: "",
+        searchText:"",
 
         isLoading: true,
 
@@ -66,7 +67,12 @@ function shoeCatalogue() {
                     console.error("Error:", error);
                 });
         },
-
+        searchShoes(){
+            axios.get(`https://shoe-catalogue-api.onrender.com/api/shoes/search/${this.searchText}`).then((result) => {
+                this.shoesList = result.data;
+                window.location.href = "index.html/#shoes";
+            });
+        },
         checkFilter() {
             if (this.colorFilterValue != "" && this.sizeFilterValue == "" && this.brandFilterValue == "") {
                 axios.get(`https://shoe-catalogue-api.onrender.com/api/shoes/color/${this.colorFilterValue}`).then((result) => {
