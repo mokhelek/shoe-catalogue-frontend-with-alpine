@@ -68,9 +68,10 @@ function shoeCatalogue() {
                 });
         },
         searchShoes(){
-            axios.get(`https://shoe-catalogue-api.onrender.com/api/shoes/search/${this.searchText}`).then((result) => {
+            console.log(this.searchText)
+            axios.post(`https://shoe-catalogue-api.onrender.com/api/shoes/search`, { "searchText" : this.searchText}).then((result) => {
                 this.shoesList = result.data;
-                window.location.href = "index.html/#shoes";
+                // window.location.href = "index.html/#shoes";
             });
         },
         checkFilter() {
