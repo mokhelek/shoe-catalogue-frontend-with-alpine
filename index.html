@@ -12,7 +12,7 @@
     </head>
 
     <div style="background-color: black">
-        
+
         <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light">
             <div class="container">
                 <!-- Left-side navigation options -->
@@ -229,6 +229,20 @@
 
                 <div class="col-9">
                     <div class="row">
+
+                        <template x-if="  (shoes.shoesList).length == 0 " >
+                            <div style="height: 80vh;" class="d-flex justify-content-center align-items-center">
+                                <div style="width:30%" >
+                                    <center> <h3 style="margin-bottom: 1rem;" >No Shoes Found</h3></center>
+                                  
+                                    <img class="img-fluid" src="/images/icons/undraw_empty_cart_co35.svg" alt="">
+                                    
+                                </div>
+                            </div>
+    
+                        </template>
+    
+
                         <template class="shoe-box-template" x-for="shoe in shoes.shoesList">
                             <div style="padding: 0.4rem" class="col-lg-4 col-md-3 col-6 shoe-box-wrapper">
                                 <div class="shoe-box card">
