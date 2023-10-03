@@ -17,13 +17,19 @@
                 <!-- Left-side navigation options -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="index.html#about">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                    <li x-show="JSON.parse(localStorage.getItem('user')).adminUser " class="nav-item">
+                        <a class="nav-link" href="stock-form.html">Add Shoes</a>
+                    </li>
+                    <li x-show="localStorage.getItem('jwtToken') == '' " class="nav-item">
+                        <a class="nav-link btn btn-sm btn-outline-warning" style="padding: 0.3rem 1.2rem; margin-top: 0.3rem; margin-left: 0.5rem" href="login.html">Login</a>
+                    </li>
+                    <li x-show="localStorage.getItem('jwtToken') != '' " class="nav-item">
+                        <button @click="auth.logout()" class="nav-link btn btn-sm btn-outline-secondary" style="padding: 0.3rem 1.2rem; margin-top: 0.3rem; margin-left: 0.5rem" href="login.html">Logout</button>
                     </li>
                 </ul>
 

@@ -114,6 +114,10 @@ p{
 a{
     font-family: "Raleway" !important; 
 }
+button{
+    font-family: "Raleway" !important; 
+}
+
 .shoe-box{
     border-radius: 0;
     margin-bottom: 0.7rem;

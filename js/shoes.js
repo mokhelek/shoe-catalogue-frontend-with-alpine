@@ -28,7 +28,7 @@ function shoeCatalogue() {
                         localStorage.setItem("jwtToken", response.data.userAccessToken);
                         localStorage.setItem("user", JSON.stringify(response.data.user));
                         this.adminUser = JSON.parse(localStorage.getItem("user")).adminUser;
-                        this.adminUser = console.log(this.adminUser);
+                        this.adminUser = console.log(" /*/* ",this.adminUser);
 
                         window.location.href = "index.html";
                     } else {
@@ -40,6 +40,12 @@ function shoeCatalogue() {
                     console.error("Error:", error);
                 });
         },
+
+        logout(){
+            localStorage['jwtToken'] = "";
+            localStorage['user'] = JSON.stringify({"username": "", adminUser:false});
+            window.location.href = "index.html";
+        }
     };
 
     let shoes = {
