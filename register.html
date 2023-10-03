@@ -80,18 +80,22 @@
     <body x-data="shoeCatalogue">
         <div style="height: 80vh" class="container d-flex justify-content-center align-items-center">
             <div style="border: 1px solid gray; padding: 4rem; box-shadow: 0 0 8px rgb(177, 177, 177)" class="col-7">
-                <center><h2>Login</h2></center>
-                <form @submit.prevent="auth.login()">
+                <center><h2>Register</h2></center>
+                <form @submit.prevent="auth.register()">
                     <label for="username">username</label>
                     <input x-model="auth.username" id="username" style="margin-bottom: 1rem" class="form-control" type="text" name="username" placeholder="Username" required />
+
+                    <label for="email">email</label>
+                    <input x-model="auth.email" id="email" style="margin-bottom: 1rem" class="form-control" type="email" name="email" placeholder="email" required />
+
 
                     <label for="password">password</label>
                     <input x-model="auth.password" id="password" style="margin-bottom: 1rem" class="form-control" type="password" name="password" placeholder="Password" required />
 
                     <p style="float: right">
-                        Don't have account? <span><a href="register.html">Register</a></span>
+                        Already have account? <span><a href="login.html">Login</a></span>
                     </p>
-                    <button class="btn btn-primary btn-sm" type="submit">Login</button>
+                    <button class="btn btn-primary btn-sm" type="submit">Register</button>
                 </form>
             </div>
         </div>

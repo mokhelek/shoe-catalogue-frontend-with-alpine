@@ -16,6 +16,7 @@ function shoeCatalogue() {
     let auth = {
         username: "",
         password: "",
+        email:"",
         adminUser: false,
 
         login() {
@@ -37,6 +38,23 @@ function shoeCatalogue() {
                     } else {
                         alert("Invalid login credentials");
                     }
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        },
+
+        register(){
+            const userData = {
+                username: this.username,
+                password: this.password,
+                email: this.email
+            };
+
+            axios
+                .post("https://shoe-catalogue-api.onrender.com/api/auth/register", userData)
+                .then((response) => {
+                    window.location.href = "login.html";
                 })
                 .catch((error) => {
                     console.error("Error:", error);
