@@ -10,6 +10,9 @@ function shoeCatalogue() {
         description: "",
     };
 
+
+  
+
     let auth = {
         username: "",
         password: "",
@@ -32,7 +35,6 @@ function shoeCatalogue() {
 
                         window.location.href = "index.html";
                     } else {
-                        // Handle authentication error (e.g., show an error message).
                         alert("Invalid login credentials");
                     }
                 })
@@ -206,6 +208,7 @@ function shoeCatalogue() {
         dropdownColor: true,
         dropdownSize: true,
         searchBar: false,
+        paymentBox: false,
 
         setDropdownBrand() {
             this.dropdownBrand = !this.dropdownBrand;
@@ -220,10 +223,28 @@ function shoeCatalogue() {
         },
         setSearchBar(){
             this.searchBar = !this.searchBar;
+        },
+        setPaymentBox(){
+            this.paymentBox = !this.paymentBox
         }
     };
 
+    let payment = {
+        paymentAmount:"",
+        makePayment(){
+
+            if(Number(this.paymentAmount)>= Number(cart.total) ){
+                axios.post(`https://shoe-catalogue-api.onrender.com/api/payment`, {amount:this.paymentAmount}, { headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` } }).then(() => {
+                    // this.getCartItems();
+                });
+            }else{
+                alert("Insufficient Amount")
+            }
+        }
+    }
+
     return {
+        payment,
         shoesDetails,
         auth,
         shoes,

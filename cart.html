@@ -177,7 +177,7 @@
                                         </svg>
                                     </button>
                                     &nbsp;
-                                    <button style="border-radius: 0" onclick="buyButtonClicked()" class="btn btn-dark" href="#">
+                                    <button @click="dom.setPaymentBox()" style="border-radius: 0" onclick="buyButtonClicked()" class="btn btn-dark" href="#">
                                         Checkout &nbsp;
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
@@ -191,8 +191,23 @@
                                         &nbsp;
                                         <img height="40" src="/images/icons/visa.png" alt="" />
                                     </div>
+                                   
+                                    <div  x-show="dom.paymentBox" >
+                                        <hr>
+                                        <form @submit.prevent="payment.makePayment()">
+                                            <input x-model="payment.paymentAmount" class="form-control" style="margin-bottom: 0.5rem;" type="text" name="" id="">
+                                            <button style="border-radius: 0" type="submit" class="btn btn-dark" href="#">
+                                                Pay &nbsp;
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                                </svg>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </center>
                             </div>
+                            <br>
+
                         </div>
                     </div>
                 </div>
