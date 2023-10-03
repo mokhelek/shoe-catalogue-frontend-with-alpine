@@ -234,8 +234,9 @@ function shoeCatalogue() {
         makePayment(){
 
             if(Number(this.paymentAmount)>= Number(cart.total) ){
-                axios.post(`https://shoe-catalogue-api.onrender.com/api/payment`, {amount:this.paymentAmount}, { headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` } }).then(() => {
-                    // this.getCartItems();
+                // todo : -> pass the ids of  shoes in cart 
+                axios.post(`https://shoe-catalogue-api.onrender.com/api/pay`, {amount:this.paymentAmount}, { headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` } }).then(() => {
+                    window.location.href = "index.html";
                 });
             }else{
                 alert("Insufficient Amount")
