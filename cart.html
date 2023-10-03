@@ -109,7 +109,9 @@
                                     <div style="padding: 1rem">
                                         <h6 style="font-weight: 600; margin-bottom: 0; color: #363636" x-text="item.shoe_name"></h6>
                                         <small style="color: rgb(100, 100, 100)" x-text="item.brand"></small>
-                                        <p style="margin-top: 0.6rem; color: #252525">R <span style="color: #464646; font-weight: 500" x-text="item.price"></span></p>
+                                        <p style="margin-top: 0.6rem; color: #585858"> Size <span style="color: #464646; font-weight: 500" x-text="item.size"></span></p>
+                                        <div  :style="'height:1rem; width:1rem; border-radius:50%;border: 1px black solid ;background-color:' + item.color "></div>
+
                                     </div>
                                 </div>
                             </div>
