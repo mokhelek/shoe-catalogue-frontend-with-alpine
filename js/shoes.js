@@ -216,12 +216,18 @@ function shoeCatalogue() {
         total: 0,
 
         getCartItems() {
-            axios.get("https://shoe-catalogue-api.onrender.com/api/cart/", { headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` } }).then((result) => {
-                this.cartList = result.data;
-                this.checkShoeInCart();
-                this.orderSummery();
+            if(localStorage.getItem("jwtToken")){
+                axios.get("https://shoe-catalogue-api.onrender.com/api/cart/", { headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` } }).then((result) => {
+                    this.cartList = result.data;
+                    this.checkShoeInCart();
+                    this.orderSummery();
+                    this.isLoading = false;
+                });
+            }else{
+                this.cartList = []
                 this.isLoading = false;
-            });
+            }
+           
         },
         addToCart(id) {
 
