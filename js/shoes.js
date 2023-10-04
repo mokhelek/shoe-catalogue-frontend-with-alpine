@@ -1,4 +1,39 @@
 function shoeCatalogue() {
+
+    let dom = {
+        dropdownBrand: true,
+        dropdownColor: true,
+        dropdownSize: true,
+        searchBar: false,
+        paymentBox: false,
+        showError: false,
+        errorText: "",
+
+        setDropdownBrand() {
+            this.dropdownBrand = !this.dropdownBrand;
+        },
+
+        setDropdownColor() {
+            this.dropdownColor = !this.dropdownColor;
+        },
+
+        setDropdownSize() {
+            this.dropdownSize = !this.dropdownSize;
+        },
+        setSearchBar(){
+            this.searchBar = !this.searchBar;
+        },
+        setPaymentBox(){
+            this.paymentBox = !this.paymentBox
+        },
+        setShowError(message){
+            console.log(message)
+            this.showError = !this.showError;
+            this.errorText = message;
+
+        }
+    };
+
     let shoesDetails = {
         shoe_name: "",
         brand: "",
@@ -218,41 +253,11 @@ function shoeCatalogue() {
         },
     };
 
-    let dom = {
-        dropdownBrand: true,
-        dropdownColor: true,
-        dropdownSize: true,
-        searchBar: false,
-        paymentBox: false,
-        showError: false,
-        errorText: "",
 
-        setDropdownBrand() {
-            this.dropdownBrand = !this.dropdownBrand;
-        },
-
-        setDropdownColor() {
-            this.dropdownColor = !this.dropdownColor;
-        },
-
-        setDropdownSize() {
-            this.dropdownSize = !this.dropdownSize;
-        },
-        setSearchBar(){
-            this.searchBar = !this.searchBar;
-        },
-        setPaymentBox(){
-            this.paymentBox = !this.paymentBox
-        },
-        setShowError(message){
-            this.errorText = message;
-            this.showError = this.showError;
-
-        }
-    };
 
     let payment = {
         paymentAmount:"",
+        showError: false,
         makePayment(){
 
             if(Number(this.paymentAmount)>= Number(cart.total) ){
@@ -261,7 +266,9 @@ function shoeCatalogue() {
                     window.location.href = "cart.html";
                 });
             }else{
-                alert("Insufficient Amount")
+                // alert("Insufficient Amount")
+                // dom.setShowError("No Money")
+                this.showError =  !this.showError
             }
         }
     }
