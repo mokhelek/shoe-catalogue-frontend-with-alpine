@@ -50,6 +50,7 @@ function shoeCatalogue() {
         password: "",
         email:"",
         adminUser: false,
+        showError: false,
 
         login() {
             const userData = {
@@ -57,9 +58,8 @@ function shoeCatalogue() {
                 password: this.password,
             };
 
-            axios
-                .post("https://shoe-catalogue-api.onrender.com/api/auth/login", userData)
-                .then((response) => {
+            axios.post("https://shoe-catalogue-api.onrender.com/api/auth/login", userData).then((response) => {
+                    console.log(response.data.userAccessToken)
                     if (response.data.userAccessToken) {
                         localStorage.setItem("jwtToken", response.data.userAccessToken);
                         localStorage.setItem("user", JSON.stringify(response.data.user));
@@ -67,8 +67,8 @@ function shoeCatalogue() {
                         this.adminUser = console.log(" /*/* ",this.adminUser);
 
                         window.location.href = "index.html";
-                    } else {
-                        alert("Invalid login credentials");
+                    }else{
+                        this.showError =  !this.showError
                     }
                 })
                 .catch((error) => {
