@@ -8,10 +8,7 @@ function shoeCatalogue() {
         color: "",
         stock_quantity: 1,
         description: "",
-    };
-
-
-  
+    }
 
     let auth = {
         username: "",
@@ -227,6 +224,8 @@ function shoeCatalogue() {
         dropdownSize: true,
         searchBar: false,
         paymentBox: false,
+        showError: false,
+        errorText: "",
 
         setDropdownBrand() {
             this.dropdownBrand = !this.dropdownBrand;
@@ -244,6 +243,11 @@ function shoeCatalogue() {
         },
         setPaymentBox(){
             this.paymentBox = !this.paymentBox
+        },
+        setShowError(message){
+            this.errorText = message;
+            this.showError = this.showError;
+
         }
     };
 
@@ -254,7 +258,7 @@ function shoeCatalogue() {
             if(Number(this.paymentAmount)>= Number(cart.total) ){
                 // todo : -> pass the ids of  shoes in cart 
                 axios.post(`https://shoe-catalogue-api.onrender.com/api/pay`, {amount:this.paymentAmount}, { headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}` } }).then(() => {
-                    window.location.href = "index.html";
+                    window.location.href = "cart.html";
                 });
             }else{
                 alert("Insufficient Amount")

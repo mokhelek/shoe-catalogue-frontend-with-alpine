@@ -33,7 +33,7 @@
             </ul>
 
             <!-- Logo -->
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.html">
                 <h1 class="logo">Kat'Walker<span style="color: orange; letter-spacing: 0">//</span></h1>
             </a>
 
@@ -127,7 +127,7 @@
                               
                                 <img class="img-fluid" src="/images/icons/undraw_empty_cart_co35.svg" alt="">
                                 <center>
-                                    <a style="border-radius: 0;margin-top: 1rem;"  class="btn btn-dark" href="index.html">
+                                    <a style="border-radius: 0;margin-top: 1rem;"  class="btn btn-dark" href="index.html#shoes">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
                                           </svg>
@@ -240,11 +240,13 @@
                                         <hr>
                                         <form @submit.prevent="payment.makePayment()">
                                             <input x-model="payment.paymentAmount" class="form-control" style="margin-bottom: 0.5rem;" type="text" name="" id="">
-                                            <button style="border-radius: 0" type="submit" class="btn btn-dark" href="#">
-                                                Pay &nbsp;
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
-                                                </svg>
+                                            <button style="border-radius: 0" type="submit" class="btn btn-dark" >
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card-2-front" viewBox="0 0 16 16">
+                                                    <path d="M14 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12zM2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z"/>
+                                                    <path d="M2 5.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z"/>
+                                                  </svg>
+                                                  &nbsp;
+                                                Pay 
                                             </button>
                                         </form>
                                     </div>

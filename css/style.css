@@ -59,7 +59,7 @@
 }
 
 .navbar {
-    background-color: #ababab23 !important;
+    background-color: #6666663b !important;
 
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(10px);
@@ -132,29 +132,30 @@ button{
 
 
 .text-container{
-    color: rgb(238, 238, 238);
+    color: rgb(255, 255, 255);
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
+    background-color: #00000056;
+    padding: 3rem 2rem;
 }
 
 .text-container h1{
     font-size: 4rem;
     font-family: serif;
     font-weight:700;
-    text-shadow: 0 0 6px rgb(0, 0, 0);
     font-family: "Cormorant Garamond";
 }
 
 .hero-section{
-    background-image: url("../images/doodoosonic-0t7PNNZlTC0-unsplash.jpg");
+    background-image: url("../images/heidi-fin-2TLREZi7BUg-unsplash.jpg");
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    /* opacity: 0.7; */
+    opacity: 0.7;
   
 }
 .hero-text{
@@ -162,7 +163,6 @@ button{
     /* color: #ffffff; */
     justify-content: center;
     align-items: center;
-    height: 50%;
    
 }
 
