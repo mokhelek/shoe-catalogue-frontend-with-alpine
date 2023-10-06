@@ -7,7 +7,8 @@ Welcome to Kat'walker, an online store selling high-end shoes.
 
 ### [Demo Link](https://katwalker.onrender.com/index.html)
 
-Find the API here [here](https://github.com/mokhelek/shoe-catalogue-api.git)
+
+FIND THE API CODE [HERE](https://github.com/mokhelek/shoe-catalogue-api.git)
 
 
 ### Features
