@@ -5,7 +5,9 @@ Welcome to Kat'walker, an online store selling high-end shoes.
 
 ![App Screenshot](https://mokhele.pythonanywhere.com/images/project/screely-1696582790831.png)
 
-###### link: https://mzansichess.pythonanywhere.com
+### [Demo Link](https://katwalker.onrender.com/index.html)
+
+Find the API here [here](https://github.com/mokhelek/shoe-catalogue-api.git)
 
 
 ### Features
